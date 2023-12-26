@@ -1,0 +1,35 @@
+<Medicine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="Medicine.xsd">
+    <Drug name="Aspirin" pharm="Bayer" group="Painkiller">
+        <Analogs>
+            <Analog name="Paracetamol"/>
+            <Analog name="Ibuprofen"/>
+        </Analogs>
+        <Versions>
+            <Version type="Tablet">
+                <Certificate number="12345" issueDate="2021-01-01" expiryDate="2026-01-01" organization="FDA"/>
+                <Package type="Box" quantity="50" price="5.99"/>
+                <Dosage amount="500mg" frequency="Twice a day"/>
+            </Version>
+            <!-- Другие Version элементы -->
+            <Version type="Capsule">
+                <Certificate number="54321" issueDate="2022-01-01" expiryDate="2027-01-01" organization="EMA"/>
+                <Package type="Bottle" quantity="30" price="10.99"/>
+                <Dosage amount="250mg" frequency="Three times a day"/>
+            </Version>
+        </Versions>
+    </Drug>
+    <!-- Другие Drug элементы -->
+    <Drug name="Penicillin" pharm="GSK" group="Antibiotic">
+        <Analogs>
+            <Analog name="Amoxicillin"/>
+        </Analogs>
+        <Versions>
+            <Version type="Liquid">
+                <Certificate number="22222" issueDate="2020-05-01" expiryDate="2025-05-01" organization="MHRA"/>
+                <Package type="Bottle" quantity="100ml" price="15.99"/>
+                <Dosage amount="10ml" frequency="Twice a day"/>
+            </Version>
+        </Versions>
+    </Drug>
+</Medicine>

@@ -1,0 +1,62 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Medicine" type="MedicineType"/>
+
+    <xs:complexType name="MedicineType">
+        <xs:sequence>
+            <xs:element name="Drug" type="DrugType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DrugType">
+        <xs:sequence>
+            <xs:element name="Analogs" type="AnalogsType"/>
+            <xs:element name="Versions" type="VersionsType"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="pharm" type="xs:string" use="required"/>
+        <xs:attribute name="group" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="AnalogsType">
+        <xs:sequence>
+            <xs:element name="Analog" type="AnalogType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AnalogType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="VersionsType">
+        <xs:sequence>
+            <xs:element name="Version" type="VersionType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="VersionType">
+        <xs:sequence>
+            <xs:element name="Certificate" type="CertificateType"/>
+            <xs:element name="Package" type="PackageType"/>
+            <xs:element name="Dosage" type="DosageType"/>
+        </xs:sequence>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CertificateType">
+        <xs:attribute name="number" type="xs:string" use="required"/>
+        <xs:attribute name="issueDate" type="xs:date" use="required"/>
+        <xs:attribute name="expiryDate" type="xs:date" use="required"/>
+        <xs:attribute name="organization" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="PackageType">
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attribute name="quantity" type="xs:string" use="required"/>
+        <xs:attribute name="price" type="xs:decimal" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="DosageType">
+        <xs:attribute name="amount" type="xs:string" use="required"/>
+        <xs:attribute name="frequency" type="xs:string" use="required"/>
+    </xs:complexType>
+</xs:schema>
